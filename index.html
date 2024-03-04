@@ -117,14 +117,14 @@
             alpha = float(Element("level").element.value)
 
             actual_cgs = float(Element("actual-cgs").element.value)
-            converstions_c = float(Element("converstions-c").element.value)
+            conversions_c = float(Element("conversions-c").element.value)
             actual_tgs = float(Element("actual-tgs").element.value)
-            converstions_t = float(Element("converstions-t").element.value)
+            conversions_t = float(Element("conversions-t").element.value)
 
-            _, p_value = proportions_ztest([converstions_c, converstions_t], [actual_cgs, actual_tgs], alternative='two-sided')
+            _, p_value = proportions_ztest([conversions_c, conversions_t], [actual_cgs, actual_tgs], alternative='two-sided')
             
-            cr_c = converstions_c/actual_cgs
-            cr_t = converstions_t/actual_tgs
+            cr_c = conversions_c/actual_cgs
+            cr_t = conversions_t/actual_tgs
 
             difference = cr_t - cr_c
 
@@ -136,8 +136,8 @@
             Element('cgs').write(round(actual_cgs))
             Element('tgs').write(round(actual_tgs))
 
-            Element('cntr-c').write(round(converstions_c))
-            Element('test-c').write(round(converstions_t))
+            Element('cntr-c').write(round(conversions_c))
+            Element('test-c').write(round(conversions_t))
 
             Element('cr-c').write(round(cr_c,4))
             Element('cr-t').write(round(cr_t,4))
